@@ -1,0 +1,42 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="AvaloniaModel.App"
+             xmlns:local="using:AvaloniaModel"
+             RequestedThemeVariant="Light">
+    <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.DataTemplates>
+        <local:ViewLocator/>
+    </Application.DataTemplates>
+
+    <Application.Styles>
+        <Style Selector="Button.imgSlide">
+            <Setter Property="MaxHeight" Value="177"/>
+            <Setter Property="MaxWidth" Value="177"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+        <Style Selector="TextBlock.ParamLabel">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="17"/>
+            <Setter Property="Margin" Value="3" />
+        </Style>
+        <Style Selector="NumericUpDown.ParamValue">
+            <Setter Property="Maximum" Value="1000" />
+            <Setter Property="Minimum" Value="-1000" />
+            <Setter Property="Increment" Value="0.1" />
+            <Setter Property="Margin" Value="3" />
+            <Setter Property="FontSize" Value="17" />
+        </Style>
+        <Style Selector="ComboBox.ParamValue">
+            <Setter Property="Margin" Value="3" />
+            <Setter Property="FontSize" Value="17" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+        </Style>
+        <FluentTheme />
+        <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml"/>
+    </Application.Styles>
+</Application>

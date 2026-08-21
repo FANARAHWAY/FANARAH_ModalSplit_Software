@@ -1,0 +1,79 @@
+﻿<Window xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:AvaloniaModel.ViewModels" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450" x:Class="AvaloniaModel.Views.MainWindow2" WindowState="Maximized" x:DataType="vm:MainWindowViewModel" Icon="/Assets/avalonia-logo.ico" Title="Avalonia Model">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55" />
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <Menu Grid.ColumnSpan="2">
+            <MenuItem  Header="Aggregated" Command="{Binding DoAggregate}" />
+            <MenuItem  Header="DisAggregated" Command="{Binding DoDisAggregate}" />
+        </Menu>
+        <WrapPanel Grid.ColumnSpan="2" Grid.Row="1" ItemsAlignment="Center" VerticalAlignment="Center">
+            <Button Classes="imgSlide" Command="{Binding changeImg}" CommandParameter="/Assets/Bus.jpg">
+                <Image Source="/Assets/Bus.jpg" />
+            </Button>
+            <Button Classes="imgSlide" Command="{Binding changeImg}" CommandParameter="/Assets/Drive.jpg">
+                <Image Source="/Assets/Drive.jpg" />
+            </Button>
+
+            <Image Source="{Binding SelectedImage}" MinHeight="333" MinWidth="333" />
+
+            <Button Classes="imgSlide" Command="{Binding changeImg}" CommandParameter="/Assets/Driven.jpg">
+                <Image Source="/Assets/Driven.jpg" />
+            </Button>
+            <Button Classes="imgSlide" Command="{Binding changeImg}" CommandParameter="/Assets/walk.jpg">
+                <Image Source="/Assets/walk.jpg" />
+            </Button>
+        </WrapPanel>
+        <Grid Grid.Row="2" Margin="11">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock Classes="ParamLabel" Text="Cost" />
+            <NumericUpDown Classes="ParamValue" Value="{Binding Parameters.Cost}" Grid.Column="1"/>
+
+            <TextBlock Classes="ParamLabel" Text="Travel Time" Grid.Row="1" />
+            <NumericUpDown Classes="ParamValue" Value="{Binding Parameters.TravelTime}" Grid.Row="1" Grid.Column="1"/>
+
+            <TextBlock Classes="ParamLabel" Text="Frict" Grid.Row="2" />
+            <NumericUpDown Classes="ParamValue" Value="{Binding Parameters.Frict}" Grid.Row="2" Grid.Column="1"/>
+
+            <TextBlock Classes="ParamLabel" Text="Walk Plus" Grid.Row="3" />
+            <NumericUpDown Classes="ParamValue" Value="{Binding Parameters.WalkPlus}" Grid.Row="3" Grid.Column="1"/>
+
+            <TextBlock Classes="ParamLabel" Text="Car" Grid.Row="4" />
+            <NumericUpDown Classes="ParamValue" Value="{Binding Parameters.Car}" Grid.Row="4" Grid.Column="1"/>
+
+            <TextBlock Classes="ParamLabel" Text="Rush" Grid.Row="5" />
+            <NumericUpDown Classes="ParamValue" Value="{Binding Parameters.Rush}" Grid.Row="5" Grid.Column="1"/>
+
+            <TextBlock Classes="ParamLabel" Text="Age" Grid.Row="6" />
+            <NumericUpDown Classes="ParamValue" Value="{Binding Parameters.Age}" Grid.Row="6" Grid.Column="1"/>
+        </Grid>
+        <DataGrid ItemsSource="{Binding ResultList}" AutoGenerateColumns="True" Grid.Row="2" Grid.Column="1">
+            
+        </DataGrid>
+    </Grid>
+
+</Window>

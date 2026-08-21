@@ -1,0 +1,104 @@
+﻿<Window xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:AvaloniaModel.ViewModels" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450" x:Class="AvaloniaModel.Views.MainWindow" WindowState="Maximized" x:DataType="vm:MainWindowViewModel" Icon="/Assets/avalonia-logo.ico" Title="FANARAH MODAL SPLIT SOFTWARE">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+    <TabControl>
+        <TabItem Header="Aggregated">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="4*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+                <WrapPanel Grid.ColumnSpan="2" ItemsAlignment="Center" VerticalAlignment="Center">
+                    <Button Classes="imgSlide">
+                        <Image Source="/Assets/Bus.jpg" />
+                    </Button>
+                    <Button Classes="imgSlide">
+                        <Image Source="/Assets/Drive.jpg" />
+                    </Button>
+
+                    <Image Source="{Binding SelectedImage}" MinHeight="333" MinWidth="333" />
+
+                    <Button Classes="imgSlide">
+                        <Image Source="/Assets/Driven.jpg" />
+                    </Button>
+                    <Button Classes="imgSlide">
+                        <Image Source="/Assets/walk.png" />
+                    </Button>
+                </WrapPanel>
+
+                <Grid Grid.Row="1" Margin="3" RowDefinitions="*,*,*,*,*,*,*,*" ColumnDefinitions="3*,5*,2*,4*">
+                    <TextBlock Classes="ParamLabel" Text="Mode" />
+                    <ComboBox Margin="3" Classes="ParamValue" ItemsSource="{Binding AllModes}" Grid.Column="1" DisplayMemberBinding="{Binding Text}" SelectedItem="{Binding SelectedMode}"/>
+
+                    <TextBlock Classes="ParamLabel" Text="Cost" Grid.Row="1"/>
+                    <NumericUpDown Classes="ParamValue" Value="{Binding Parameters.Cost}" Grid.Row="1" Grid.Column="1" IsEnabled="{Binding IsCostEnabled}" />
+                    <TextBlock Grid.Row="1" Grid.Column="2" Text="cents" VerticalAlignment="Center"/>
+
+                    <TextBlock Classes="ParamLabel" Text="Travel Time" Grid.Row="2" />
+                    <NumericUpDown Classes="ParamValue" Value="{Binding Parameters.TravelTime}" Maximum="{Binding WalkMaxTime}" Grid.Row="2" Grid.Column="1" IsEnabled="{Binding IsTimeEnabled}" />
+                    <TextBlock Grid.Row="2" Grid.Column="2" Text="seconds" VerticalAlignment="Center" />
+
+                    <TextBlock Classes="ParamLabel" Text="Frict" Grid.Row="3" />
+                    <NumericUpDown Classes="ParamValue" Value="{Binding Parameters.Frict}" IsEnabled="{Binding IsFrictEnabled}" Grid.Row="3" Grid.Column="1"/>
+
+                    <TextBlock Classes="ParamLabel" Text="Walk Plus" Grid.Row="4" />
+                    <NumericUpDown Classes="ParamValue" Value="{Binding Parameters.WalkPlus}" Grid.Row="4"  IsEnabled="{Binding IsWalkEnabled}" Grid.Column="1"/>
+
+                    <TextBlock Classes="ParamLabel" Text="Car" Grid.Row="5" />
+                    <NumericUpDown Classes="ParamValue" Value="{Binding Parameters.Car}" IsEnabled="{Binding IsCarEnabled}" Increment="1" Maximum="4" Minimum="0" Grid.Row="5" Grid.Column="1"/>
+
+                    <TextBlock Classes="ParamLabel" Text="Rush" Grid.Row="6" />
+                    <ComboBox Classes="ParamValue" SelectedValue="{Binding SelectedRush}" IsEnabled="{Binding IsRushEnabled}"  Grid.Row="6" Grid.Column="1">
+                        <ComboBoxItem Tag="1" Content="True" />
+                        <ComboBoxItem Tag="0" Content="False" />
+                    </ComboBox>
+
+                    <TextBlock Classes="ParamLabel" Text="Age" Grid.Row="7" />
+                    <ComboBox Grid.Row="7" Classes="ParamValue" Grid.Column="1" IsEnabled="{Binding IsAgeEnabled}" ItemsSource="{Binding AllAges}" DisplayMemberBinding="{Binding Text}" SelectedItem="{Binding selectedAge}" />
+
+                    <Button Content="Enter 🖊️" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="3" Margin="5" Command="{Binding AddData}" />
+                    <Button Grid.Row="1" Content="Run ▶️" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="3" Margin="5" Command="{Binding DoAggregate}"/>
+                    <Button Grid.Row="2" Content="Reset 🔄" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="3" Margin="5" Command="{Binding ResetData}" />
+                </Grid>
+                <DataGrid ItemsSource="{Binding ResultList}" AutoGenerateColumns="False" Grid.Row="2" Grid.Column="1">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Propability" Binding="{Binding Prop}" IsReadOnly="True" IsVisible="{Binding ShowPropability}" />
+                        <DataGridTextColumn Header="Travel Mode" Binding="{Binding Mode}" IsReadOnly="True" />
+                        <DataGridTextColumn Header="Cost" Binding="{Binding Cost}" IsReadOnly="True" />
+                        <DataGridTextColumn Header="Travel Time" Binding="{Binding TravelTime}" IsReadOnly="True" />
+                        <DataGridTextColumn Header="Frict" Binding="{Binding Frict}" IsReadOnly="True" />
+                        <DataGridTextColumn Header="WalkPlus" Binding="{Binding WalkPlus}" IsReadOnly="True" />
+                        <DataGridTextColumn Header="Car" Binding="{Binding Car}" IsReadOnly="True" />
+                        <DataGridTextColumn Header="Rush" Binding="{Binding Rush}" IsReadOnly="True" />
+                        <DataGridTextColumn Header="Age" Binding="{Binding Age}" IsReadOnly="True" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Disaggregated">
+            <Grid RowDefinitions="*,*">
+                <WrapPanel ItemsAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Center" >
+                    <TextBlock Text="Data CSV file" FontSize="17" VerticalAlignment="Center"/>
+                    <Button Content="Open 📂" Click="OpenFileButton_Clicked" FontSize="17" VerticalAlignment="Center" />
+                    <TextBlock Text="{Binding CsvPath}" FontSize="17" VerticalAlignment="Center"/>
+                </WrapPanel>
+                <Button Grid.Row="1" Content="Run ▶️" HorizontalAlignment="Center" MinWidth="155" MinHeight="75" HorizontalContentAlignment="Center" VerticalAlignment="Top" Command="{Binding DoDisAggregate}" FontSize="17" VerticalContentAlignment="Center" IsEnabled="{Binding CsvPath, Converter={x:Static, ObjectConverters.IsNotNull}}"/>
+            </Grid>
+        </TabItem>
+        <TabItem Header="About">
+            <WrapPanel ItemsAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                <TextBlock Text=" (Fanarah Mode Split) (version 1)" VerticalAlignment="Center"/>
+                <HyperlinkButton NavigateUri="mailto:akram.sabry@guidesw.net" Content="akram.sabry@guidesw.net" VerticalAlignment="Center"/>
+                <HyperlinkButton NavigateUri="#" Content="User Guide" VerticalAlignment="Center" Command="{Binding openUserGuide}"/>
+            </WrapPanel>
+        </TabItem>
+    </TabControl>
+</Window>
