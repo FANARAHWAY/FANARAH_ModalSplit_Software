@@ -12,16 +12,7 @@ namespace AvaloniaModel.Misc
 {
     //FANARAH - 2026-07-01
     //we got this EXCEL connection string code from stackoverflow, and modified it to fit our needs.
-    // Source - https://stackoverflow.com/q/55046435
-    // Posted by yeljo, modified by community. See post 'Timeline' for change history
-    // Retrieved 2026-07-01, License - CC BY-SA 4.0
-    //   querysyntx = "select * from [" + dt.Rows[0]["TABLE_NAME"].ToString() + "]";
-    // Get the data table containg the schema guid.
-    // This software is simple but with deep model to help transport planners choosing between different transport modes Cars Buses Walk .. By me urban planner Akram Sabry and Mohamed El Mentiaoi mathimatcien 
-    //C# developer beteen 2008  -  2012  IBM certificate
-    // استعنت ببعض محاضرات جامعة النيل د. محمد عبدالعاطي 
-    //C# is decition maker
-    //Describe the code pattern used in this code, and explain the purpose of the DataAccess class and its methods.
+   
     //stored procedures are not supported in excel, so we use the select statement to get the data from the excel sheet.
     //Paul model //https://www.w3schools.com/sql/sql_stored_procedures.asp
     internal class DataAccess
