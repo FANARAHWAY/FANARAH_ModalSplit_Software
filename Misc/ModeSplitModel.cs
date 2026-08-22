@@ -25,6 +25,7 @@ namespace AvaloniaModel.Misc
         /// </summary>
         /// <param name="filePath">CSV file path</param>
         /// <returns></returns>
+        //Copyright FANARAH TEAM 2026
         public List<T> readCSV(string filePath)
         {
             var config = new CsvConfiguration(CultureInfo.InvariantCulture)
