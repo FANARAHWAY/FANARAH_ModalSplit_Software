@@ -11,6 +11,7 @@ using System.Linq;
 namespace AvaloniaModel.Misc
 {
     //FANARAH - 2026-07-01
+    //Copyright FANARAH TEAM 2026
     //we got this EXCEL connection string code from stackoverflow, and modified it to fit our needs.
    
     //stored procedures are not supported in excel, so we use the select statement to get the data from the excel sheet.
