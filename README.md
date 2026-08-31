@@ -12,5 +12,8 @@ has the core methods and functions
  ##DataAccess Class
   #ProbDisAggrPropFunList public method
   calculates the probability of mode in DisAggregated data.
+
+  For more details about model review presentation
+  https://lnkd.in/p/eBTPSQPf
  
 
