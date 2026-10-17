@@ -1,21 +1,15 @@
 # These are supported funding model platforms
 
-github: # Replace with up to 4 GitHub Sponsors-enabled usernames e.g., [user1, user2]
-patreon: # Replace with a single Patreon username
-open_collective: # Replace with a single Open Collective username
-ko_fi: # Replace with a single Ko-fi username
-tidelift: # Replace with a single Tidelift platform-name/package-name e.g., npm/babel
-community_bridge: # Replace with a single Community Bridge project-name e.g., cloud-foundry
-liberapay: # Replace with a single Liberapay username
-issuehunt: # Replace with a single IssueHunt username
-lfx_crowdfunding: # Replace with a single LFX Crowdfunding project-name e.g., cloud-foundry
-polar: # Replace with a single Polar username
-buy_me_a_coffee: # Replace with a single Buy Me a Coffee username
-thanks_dev: # Replace with a single thanks.dev username
-custom: # Replace with up to 4 custom sponsorship URLs e.g., ['link1', 'link2']
-<div id="paypal-container-Z84EHC35YAEN4"></div>
-<script>
-  paypal.HostedButtons({
-    hostedButtonId: "Z84EHC35YAEN4",
-  }).render("#paypal-container-Z84EHC35YAEN4")
-</script>
+github: [FANARAH WAY , Transportation]
+patreon: # FANARAH
+tidelift: # Transportation Software
+custom: [" https://fanarah-way.com", 'link2']
+<div>
+  <style>.pp-Z84EHC35YAEN4{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+  <form action="https://www.paypal.com/ncp/payment/Z84EHC35YAEN4" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+    <input class="pp-Z84EHC35YAEN4" type="submit" value="شراء الآن" />
+    <img src=https://www.paypalobjects.com/images/Debit_Credit.svg alt="cards" />
+    <section style="font-size: 0.75rem;"> مدعوم من <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/></section>
+  </form>
+</div>
+
