@@ -4,3 +4,9 @@ github: [FANARAH WAY , Transportation]
 patreon: # FANARAH
 tidelift: # Transportation Software
 custom: [" https://fanarah-way.com", 'link2']
+<div id="paypal-container-Z84EHC35YAEN4"></div>
+<script>
+  paypal.HostedButtons({
+    hostedButtonId: "Z84EHC35YAEN4",
+  }).render("#paypal-container-Z84EHC35YAEN4")
+</script>
